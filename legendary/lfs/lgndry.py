@@ -228,7 +228,7 @@ class LGDLFS:
     def set_game_meta(self, app_name, meta):
         json_meta = meta.__dict__
         self._game_metadata[app_name] = json_meta
-        meta_file = os.path.join(self.path, 'metadata', f'{app_name}.json')
+        meta_file = os.path.join(self.path, 'metadata', f'{app_name.strip()}.json')
         json.dump(json_meta, open(meta_file, 'w'), indent=2, sort_keys=True)
 
     def delete_game_meta(self, app_name):
